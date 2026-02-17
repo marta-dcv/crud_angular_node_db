@@ -1,20 +1,15 @@
 {
-  "buildCommand": "cd frontend && npm install && npm run build",
-  "outputDirectory": "frontend/dist/frontend/browser",
-  "installCommand": "npm install --prefix frontend && npm install --prefix backend",
-  "functions": {
-    "backend/api/**/*.ts": {
-      "runtime": "nodejs20.x"
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.ts",
+      "use": "@vercel/node"
     }
-  },
-  "rewrites": [
+  ],
+  "routes": [
     {
-      "source": "/api/(.*)",
-      "destination": "/backend/api/index.ts"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "/(.*)",
+      "dest": "api/index.ts"
     }
   ]
 }
