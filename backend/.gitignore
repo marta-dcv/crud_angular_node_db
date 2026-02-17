@@ -1,0 +1,22 @@
+# ======================
+# General
+# ======================
+node_modules/
+dist/
+.env
+.env.*
+
+# ======================
+# Docker
+# ======================
+docker-data/
+volumes/
+
+# ======================
+# OS / IDE
+# ======================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.vercel

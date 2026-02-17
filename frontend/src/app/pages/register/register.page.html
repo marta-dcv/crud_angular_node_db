@@ -1,0 +1,43 @@
+<div class="min-h-screen bg-slate-50 flex items-center justify-center p-4">
+  <div class="w-full max-w-md rounded-2xl bg-white shadow-sm border p-6">
+    <h1 class="text-xl font-semibold text-slate-900">Crear cuenta</h1>
+    <p class="text-sm text-slate-500 mt-1">Registro con email y password</p>
+
+    @if (error()) {
+      <div class="mt-4 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-rose-700 text-sm">
+        {{ error() }}
+      </div>
+    }
+
+    <form class="mt-5 space-y-4" [formGroup]="form" (ngSubmit)="submit()">
+      <div>
+        <label class="text-xs font-medium text-slate-600">Nombre</label>
+        <input class="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+               formControlName="name" placeholder="Tu nombre" />
+      </div>
+
+      <div>
+        <label class="text-xs font-medium text-slate-600">Email</label>
+        <input class="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+               formControlName="email" placeholder="tu@email.com" />
+      </div>
+
+      <div>
+        <label class="text-xs font-medium text-slate-600">Password</label>
+        <input type="password" class="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+               formControlName="password" placeholder="mínimo 6 caracteres" />
+      </div>
+
+      <button type="submit"
+              class="w-full rounded-xl bg-slate-900 px-4 py-2 text-white text-sm font-medium hover:bg-slate-800 disabled:opacity-60"
+              [disabled]="loading()">
+        @if (loading()) { Creando... } @else { Crear cuenta }
+      </button>
+    </form>
+
+    <p class="mt-4 text-sm text-slate-600">
+      ¿Ya tienes cuenta?
+      <a routerLink="/login" class="font-medium text-slate-900 underline">Login</a>
+    </p>
+  </div>
+</div>

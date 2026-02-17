@@ -1,0 +1,25 @@
+###
+
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "name": "Usuario Prueba 2",
+    "email": "test2@correo.com",
+    "password": "1234"
+}
+
+###
+
+GET http://localhost:3000/hola
+
+###
+
+GET http://localhost:3000/auth/env-check
+###
+
+GET https://crudbackend-green.vercel.app/hola
+
+
+###
+GET https://crudbackend-green.vercel.app/env-check
